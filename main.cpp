@@ -4,7 +4,6 @@
 
 #include "Game.h"
 #include "MapObject.h"
-
 using namespace sf;
 using std::cout;
 using std::cin;
@@ -16,7 +15,6 @@ int main()
 	window.setFramerateLimit(60);
 
 	Game * game = new Game(&window);
-	
 
     while (window.isOpen())
     {
