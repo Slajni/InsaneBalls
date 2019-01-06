@@ -23,5 +23,12 @@ void Game::update()
 {
 	this->mainWindow->clear();
 	this->mainWindow->draw(*this->map);
+	for (auto i : this->objectsOnMap)
+		this->mainWindow->draw(i.gSprite());
 	this->mainWindow->display();
+}
+
+void Game::addMapObject(MapObject & obj)
+{
+	this->objectsOnMap.push_back(obj);
 }
