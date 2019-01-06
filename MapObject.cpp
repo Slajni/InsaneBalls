@@ -4,6 +4,8 @@
 
 MapObject::MapObject()
 {
+	delete this->position;
+	delete this->sprite;
 }
 
 MapObject::MapObject(const sf::Texture & text, int x, int y, sf::RenderWindow * window)
@@ -54,6 +56,11 @@ void MapObject::negateDx()
 void MapObject::negateDy()
 {
 	this->defaultdy *= (-1);
+}
+
+void MapObject::setDy(float x)
+{
+	this->defaultdy = x;
 }
 
 sf::Vector2f MapObject::getDxes()

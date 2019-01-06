@@ -24,6 +24,7 @@ public:
 	virtual void update();
 	void negateDx();
 	void negateDy();
+	void setDy(float x);
 	sf::Vector2f getDxes();
 	sf::Vector2i * getPosition();
 };
