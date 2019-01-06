@@ -11,7 +11,7 @@ Game::Game(sf::RenderWindow* window, std::string adress)
 
 Game::Game()
 {
-
+	
 }
 
 
@@ -24,11 +24,14 @@ void Game::update()
 	this->mainWindow->clear();
 	this->mainWindow->draw(*this->map);
 	for (auto i : this->objectsOnMap)
-		this->mainWindow->draw(i.gSprite());
+	{
+		i->update();
+		this->mainWindow->draw(i->gSprite());
+	}
 	this->mainWindow->display();
 }
 
-void Game::addMapObject(MapObject & obj)
+void Game::addMapObject(MapObject * obj)
 {
 	this->objectsOnMap.push_back(obj);
 }
