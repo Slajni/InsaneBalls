@@ -10,8 +10,7 @@ MapObject::MapObject(const sf::Texture & text, int x, int y, sf::RenderWindow * 
 {
 	this->parentWindow = window;
 	this->texture = text;
-	this->startX = x;
-	this->startY = y;
+	this->position = new sf::Vector2i(x, y);
 	this->id = MapObject::nextId;
 	MapObject::nextId++;
 	this->sprite = new sf::Sprite(this->texture);
@@ -40,13 +39,31 @@ void MapObject::changePosition(int x, int y)
 
 void MapObject::move(float x, float y, float dx, float dy, float multiplierX, float multiplierY)
 {
-	{
 		sprite->move(sf::Vector2f(x * multiplierX * dx, y * multiplierY * dy));
-	}
 }
 
 void MapObject::update()
 {
+}
+
+void MapObject::negateDx()
+{
+	this->defaultdx *= (-1);
+}
+
+void MapObject::negateDy()
+{
+	this->defaultdy *= (-1);
+}
+
+sf::Vector2f MapObject::getDxes()
+{
+	return sf::Vector2f(this->defaultdx,this->defaultdy);
+}
+
+sf::Vector2i * MapObject::getPosition()
+{
+	return this->position;
 }
 
 int MapObject::nextId = 0;

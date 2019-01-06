@@ -9,7 +9,8 @@ private:
 	sf::Sprite * sprite;
 	int id;
 	static int nextId;
-	int startX, startY;
+	sf::Vector2i * position;
+	float defaultdx = 1.0, defaultdy = 1.0;
 
 public:
 	MapObject();
@@ -21,6 +22,9 @@ public:
 	void changePosition(int x, int y);
 	void move(float x, float y, float dx = 1.0, float dy = 1.0, float multiplierX = 1.0, float multiplierY = 1.0);
 	virtual void update();
-
+	void negateDx();
+	void negateDy();
+	sf::Vector2f getDxes();
+	sf::Vector2i * getPosition();
 };
 
