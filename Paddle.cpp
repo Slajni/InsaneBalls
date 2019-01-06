@@ -20,8 +20,8 @@ Paddle::~Paddle()
 
 void Paddle::update()
 {
-	this->getPosition = sf::Mouse::getPosition(*this->gParentWindow());
-	this->getPosition()->x = this->getPosition()->x - this->getPosition()->x / 2;
+	sf::Vector2i curPos = sf::Mouse::getPosition(*this->gParentWindow());
+	this->getPosition()->x = curPos.x - this->size.x / 2;
 	this->getPosition()->y = 800 - this->size.y;
 	this->changePosition(this->getPosition()->x, this->getPosition()->y);
 }
