@@ -11,6 +11,7 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Insane Balls");
 	window.setFramerateLimit(60);
+	window.setMouseCursorVisible(false);
 
 	Game * game = new Game(&window);
 	sf::Texture paddleText;
