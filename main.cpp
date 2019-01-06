@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Game.h"
+#include "MapObject.h"
 
 using namespace sf;
 using std::cout;
@@ -16,6 +17,7 @@ int main()
 
 	Game * game = new Game(&window);
 	
+
     while (window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
