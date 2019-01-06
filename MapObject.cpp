@@ -27,4 +27,11 @@ sf::Sprite MapObject::gSprite()
 	return *this->sprite;
 }
 
+void MapObject::move(float x, float y, float multiplierX, float multiplierY, float dx, float dy)
+{
+	{
+		sprite->move(sf::Vector2f(x * multiplierX * dx, y * multiplierY * dy));
+	}
+}
+
 int MapObject::nextId = 0;

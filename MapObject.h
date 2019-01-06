@@ -16,9 +16,7 @@ public:
 	~MapObject();
 
 	sf::Sprite gSprite();
-	void move(float x, float y)
-	{
-		sprite->move(sf::Vector2f(x, y));
-	}
+	void move(float x, float y, float multiplierX = 1.0, float multiplierY = 1.0, float dx = 1.0, float dy = 1.0);
+	
 };
 
