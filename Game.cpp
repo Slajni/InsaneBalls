@@ -38,6 +38,18 @@ void Game::addMapObject(MapObject * obj)
 	this->objectsOnMap.push_back(obj);
 }
 
+void Game::addBall(Ball * obj)
+{
+	this->balls.push_back(obj);
+	this->addMapObject(obj);
+}
+
+void Game::addPaddle(Paddle * obj)
+{
+	this->paddle = obj;
+	this->addMapObject(obj);
+}
+
 void Game::updateMoves()
 {
 	for (auto i : objectsOnMap)

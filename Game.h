@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 #include "MapObject.h"
+#include "Paddle.h"
+#include "Ball.h"
+
 class Game
 {
 private:
@@ -13,6 +16,8 @@ private:
 	sf::Vector2i * size;
 	sf::Sprite * map;
 	std::vector <MapObject*> objectsOnMap;
+	Paddle * paddle;
+	std::vector <Ball*> balls;
 
 public:
 	Game(sf::RenderWindow* window, std::string adress = "images/background.jpg");
@@ -22,6 +27,8 @@ public:
 
 	void update();
 	void addMapObject(MapObject * obj);
+	void addBall(Ball * obj);
+	void addPaddle(Paddle * obj);
 	void updateMoves(); // this function is responsible for bouncing of items and deleting them after they reach bottom of the map
 };
 
