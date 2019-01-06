@@ -4,10 +4,8 @@
 
 #include "Game.h"
 #include "MapObject.h"
-using namespace sf;
-using std::cout;
-using std::cin;
-using std::endl;
+#include "Paddle.h"
+
 
 int main()
 {
@@ -15,6 +13,11 @@ int main()
 	window.setFramerateLimit(60);
 
 	Game * game = new Game(&window);
+	sf::Texture paddleText;
+	paddleText.loadFromFile("images/paddle.png");
+
+
+	game->addMapObject(new Paddle(paddleText,&window,sf::Vector2i(90,9)));
 
     while (window.isOpen())
     {
@@ -29,6 +32,6 @@ int main()
         }
 		game->update();
     }
-
+	
     return 0;
 }
