@@ -2,6 +2,11 @@
 #include <algorithm>
 #include <iostream>
 
+bool Game::isCollide(sf::Sprite * s1, sf::Sprite * s2)
+{
+	return s1->getGlobalBounds().intersects(s2->getGlobalBounds());
+}
+
 Game::Game(sf::RenderWindow* window, std::string adress)
 {
 	this->gameTexture.loadFromFile(adress);
@@ -63,7 +68,9 @@ void Game::updateMoves()
 		std::cout << i->getPosition()->x << " " << i->getPosition()->y << std::endl;
 		if (i->getPosition()->x < 0 || i->getPosition()->x > 800)
 			i->negateDx();
-		if (i->getPosition()->y < 0 && i->getDxes().y > 0)
+		if (i->getPosition()->y < 0)
 			i->setDy(1.0);
+		if (isCollide(&i->gSprite(), &this->paddle->gSprite()))
+			i->negateDy();
 	}
 }

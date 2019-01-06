@@ -27,8 +27,9 @@ int main()
 
 	Paddle * paddle = new Paddle(paddleText, &window, sf::Vector2i(90, 9));
 
-	game->addMapObject(paddle);
-	game->addMapObject(new Ball(ballText, &window, 4, 4));
+	game->addBall(new Ball(ballText, &window, 6.0, 6.0));
+	game->addPaddle(paddle);
+
 
     while (window.isOpen())
     {

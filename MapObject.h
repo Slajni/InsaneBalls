@@ -27,5 +27,6 @@ public:
 	void setDy(float x);
 	sf::Vector2f getDxes();
 	sf::Vector2i * getPosition();
+	
 };
 

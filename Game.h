@@ -19,6 +19,8 @@ private:
 	Paddle * paddle;
 	std::vector <Ball*> balls;
 
+	bool isCollide(sf::Sprite * s1, sf::Sprite * s2);
+
 public:
 	Game(sf::RenderWindow* window, std::string adress = "images/background.jpg");
 	Game();
