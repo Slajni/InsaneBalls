@@ -12,16 +12,15 @@ private:
 	sf::Texture gameTexture;
 	sf::Vector2i * size;
 	sf::Sprite * map;
-	std::vector <MapObject> objectsOnMap;
+	std::vector <MapObject*> objectsOnMap;
 
 public:
-	Game(sf::Vector2i dims, std::string adress);
 	Game(sf::RenderWindow* window, std::string adress = "images/background.jpg");
 	Game();
 	~Game();
 
 
 	void update();
-	void addMapObject(MapObject & obj);
+	void addMapObject(MapObject * obj);
 };
 
