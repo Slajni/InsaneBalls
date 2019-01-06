@@ -4,6 +4,7 @@ class MapObject
 {
 private:
 
+	sf::RenderWindow * parentWindow; //window which holds the object
 	sf::Texture texture;
 	sf::Sprite * sprite;
 	int id;
@@ -12,11 +13,14 @@ private:
 
 public:
 	MapObject();
-	MapObject(const sf::Texture & text, int x, int y);
+	MapObject(const sf::Texture & text, int x, int y, sf::RenderWindow * window);
 	~MapObject();
 
 	sf::Sprite gSprite();
-	void move(float x, float y, float multiplierX = 1.0, float multiplierY = 1.0, float dx = 1.0, float dy = 1.0);
-	
+	sf::RenderWindow * gParentWindow();
+	void changePosition(int x, int y);
+	void move(float x, float y, float dx = 1.0, float dy = 1.0, float multiplierX = 1.0, float multiplierY = 1.0);
+	virtual void update();
+
 };
 
