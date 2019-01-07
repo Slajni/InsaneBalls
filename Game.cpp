@@ -7,6 +7,11 @@ bool Game::isCollide(sf::Sprite * s1, sf::Sprite * s2)
 	return s1->getGlobalBounds().intersects(s2->getGlobalBounds());
 }
 
+void Game::addMovable(Movable * obj)
+{
+	movables.push_back(obj);
+}
+
 Game::Game(sf::RenderWindow* window, std::string adress)
 {
 	this->gameTexture.loadFromFile(adress);
@@ -23,6 +28,14 @@ Game::Game()
 
 Game::~Game()
 {
+	if (this->mainWindow != nullptr)
+		delete this->mainWindow;
+	if (this->size != nullptr)
+		delete this->size;
+	if (this->map != nullptr)
+		delete this->map;
+	if (this->paddle != nullptr)
+		delete this->paddle;
 }
 
 void Game::update()
@@ -33,7 +46,7 @@ void Game::update()
 	for (auto i : this->objectsOnMap)
 	{
 		i->update();
-		this->mainWindow->draw(i->gSprite());
+		this->mainWindow->draw(*i->gSprite());
 	}
 	this->mainWindow->display();
 }
@@ -47,6 +60,7 @@ void Game::addBall(Ball * obj)
 {
 	this->balls.push_back(obj);
 	this->addMapObject(obj);
+	this->addMovable(obj);
 }
 
 void Game::addPaddle(Paddle * obj)
@@ -63,14 +77,14 @@ void Game::updateMoves()
 			[](const auto& i) { return i->getPosition()->y > 800; }),
 			objectsOnMap.end());
 	}
-	for (auto i : objectsOnMap)
+	for (auto i : movables)
 	{
 		std::cout << i->getPosition()->x << " " << i->getPosition()->y << std::endl;
 		if (i->getPosition()->x < 0 || i->getPosition()->x > 800)
 			i->negateDx();
 		if (i->getPosition()->y < 0)
 			i->setDy(1.0);
-		if (isCollide(&i->gSprite(), &this->paddle->gSprite()))
+		if (isCollide(i->gSprite(), this->paddle->gSprite()))
 			i->negateDy();
 		
 		for(auto i: balls)
@@ -78,7 +92,7 @@ void Game::updateMoves()
 			{
 				if (j != i)
 				{
-					if (isCollide(&i->gSprite(), &j->gSprite()))
+					if (isCollide(i->gSprite(), j->gSprite()))
 					{
 						i->negateDx();
 						i->negateDy();

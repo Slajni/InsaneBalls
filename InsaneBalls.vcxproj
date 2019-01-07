@@ -24,6 +24,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapObject.cpp" />
     <ClCompile Include="Modifier.cpp" />
+    <ClCompile Include="Movable.cpp" />
     <ClCompile Include="Paddle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +32,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="MapObject.h" />
     <ClInclude Include="Modifier.h" />
+    <ClInclude Include="Movable.h" />
     <ClInclude Include="Paddle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

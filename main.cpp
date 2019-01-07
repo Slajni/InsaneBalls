@@ -29,10 +29,9 @@ int main()
 
 
 	game->addPaddle(paddle);
-
+	game->addBall(new Ball(ballText, &window, sf::Vector2f(4.0, 4.0)));
 
 	sf::Clock clock;
-	game->addBall(new Ball(ballText, &window, 4.0, 4.0));
     while (window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
@@ -45,10 +44,10 @@ int main()
                 window.close();
         }
 		game->update();
-		if (clock.getElapsedTime() > sf::seconds(3))
+		if (clock.getElapsedTime() > sf::seconds(5))
 		{
+			game->addBall(new Ball(ballText, &window, sf::Vector2f((rand()%50 + 10)/10, (rand() % 50 + 10) / 10)));
 			clock.restart();
-			game->addBall(new Ball(ballText, &window, 4.0, 4.0));
 		}
     }
 	
