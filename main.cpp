@@ -27,10 +27,12 @@ int main()
 
 	Paddle * paddle = new Paddle(paddleText, &window, sf::Vector2i(90, 9));
 
-	game->addBall(new Ball(ballText, &window, 6.0, 6.0));
+
 	game->addPaddle(paddle);
 
 
+	sf::Clock clock;
+	game->addBall(new Ball(ballText, &window, 4.0, 4.0));
     while (window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
@@ -43,6 +45,11 @@ int main()
                 window.close();
         }
 		game->update();
+		if (clock.getElapsedTime() > sf::seconds(3))
+		{
+			clock.restart();
+			game->addBall(new Ball(ballText, &window, 4.0, 4.0));
+		}
     }
 	
     return 0;
