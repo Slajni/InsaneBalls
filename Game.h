@@ -7,6 +7,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Modifier.h"
+#include "Movable.h"
 
 class Game
 {
@@ -17,11 +18,13 @@ private:
 	sf::Vector2i * size;
 	sf::Sprite * map;
 	std::vector <MapObject*> objectsOnMap;
+	std::vector <Movable*> movables;
 	Paddle * paddle;
 	std::vector <Ball*> balls;
 	std::vector <Modifier*> modifiers;
 
 	bool isCollide(sf::Sprite * s1, sf::Sprite * s2);
+	void addMovable(Movable * obj);
 
 public:
 	Game(sf::RenderWindow* window, std::string adress = "images/background.jpg");

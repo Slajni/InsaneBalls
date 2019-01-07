@@ -1,7 +1,8 @@
 #pragma once
 #include "MapObject.h"
+#include "Movable.h"
 class Modifier :
-	public MapObject
+	public Movable
 {
 private:
 

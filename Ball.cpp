@@ -6,23 +6,17 @@ Ball::Ball()
 {
 }
 
-Ball::Ball(const sf::Texture & text, sf::RenderWindow * window, float speedx, float speedy)
-	:MapObject(text,rand()%601 + 100,-30,window)
+Ball::Ball(const sf::Texture & text, sf::RenderWindow * window, sf::Vector2f speeds)
+	:Movable(text, rand() % 601 + 100, -30, window, speeds)
 {
-	if (rand() % 2 == 0)
-		this->setDx(1.0);
-	else
-		this->setDx(-1.0);
-	this->speedx = speedx;
-	this->speedy = speedy;
 }
 
 void Ball::update()
 {
-	this->move(speedx,speedy,this->getDxes().x,this->getDxes().y);
-	this->getPosition()->x += this->getDxes().x * speedx;
-	this->getPosition()->y += this->getDxes().y * speedy;
+	this->move(this->getDirections(), this->getSpeeds(), this->getMultipliers());
 }
+
+
 
 
 Ball::~Ball()
