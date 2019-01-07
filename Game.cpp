@@ -72,6 +72,19 @@ void Game::updateMoves()
 			i->setDy(1.0);
 		if (isCollide(&i->gSprite(), &this->paddle->gSprite()))
 			i->negateDy();
+		
+		for(auto i: balls)
+			for (auto j : balls)
+			{
+				if (j != i)
+				{
+					if (isCollide(&i->gSprite(), &j->gSprite()))
+					{
+						i->negateDx();
+						i->negateDy();
+					}
+				}
+			}
 
 	}
 }
