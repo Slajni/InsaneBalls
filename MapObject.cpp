@@ -63,6 +63,11 @@ void MapObject::setDy(float x)
 	this->defaultdy = x;
 }
 
+void MapObject::setDx(float x)
+{
+	this->defaultdx = x;
+}
+
 sf::Vector2f MapObject::getDxes()
 {
 	return sf::Vector2f(this->defaultdx,this->defaultdy);

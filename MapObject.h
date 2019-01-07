@@ -25,6 +25,7 @@ public:
 	void negateDx();
 	void negateDy();
 	void setDy(float x);
+	void setDx(float x);
 	sf::Vector2f getDxes();
 	sf::Vector2i * getPosition();
 	
