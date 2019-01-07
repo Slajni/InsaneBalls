@@ -4,8 +4,6 @@
 
 MapObject::MapObject()
 {
-	delete this->position;
-	delete this->sprite;
 }
 
 MapObject::MapObject(const sf::Texture & text, int x, int y, sf::RenderWindow * window)
@@ -22,6 +20,12 @@ MapObject::MapObject(const sf::Texture & text, int x, int y, sf::RenderWindow * 
 
 MapObject::~MapObject()
 {
+	if(this->position!=nullptr)
+		delete this->position;
+	if(this->sprite!=nullptr)
+		delete this->sprite;
+	if(this->parentWindow!=nullptr)
+		delete this->parentWindow;
 }
 
 sf::Sprite MapObject::gSprite()
