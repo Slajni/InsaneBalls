@@ -46,6 +46,8 @@ void MapObject::changePosition(int x, int y)
 void MapObject::move(float x, float y, float dx, float dy, float multiplierX, float multiplierY)
 {
 		this->sprite->move(sf::Vector2f(x * multiplierX * dx, y * multiplierY * dy));
+		//position->x += defaultdx * x * dx * multiplierX;
+		//position->y += defaultdy * y * dy * multiplierY;
 }
 
 void MapObject::update()

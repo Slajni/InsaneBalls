@@ -23,6 +23,14 @@ Game::Game()
 
 Game::~Game()
 {
+	if (this->mainWindow != nullptr)
+		delete this->mainWindow;
+	if (this->size != nullptr)
+		delete this->size;
+	if (this->map != nullptr)
+		delete this->map;
+	if (this->paddle != nullptr)
+		delete this->paddle;
 }
 
 void Game::update()

@@ -45,10 +45,10 @@ int main()
                 window.close();
         }
 		game->update();
-		if (clock.getElapsedTime() > sf::seconds(3))
+		if (clock.getElapsedTime() > sf::seconds(5))
 		{
 			clock.restart();
-			game->addBall(new Ball(ballText, &window, 4.0, 4.0));
+			game->addBall(new Ball(ballText, &window, (rand()%50 + 10)/10, (rand() % 50 + 10) / 10));
 		}
     }
 	
