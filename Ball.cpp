@@ -9,6 +9,10 @@ Ball::Ball()
 Ball::Ball(const sf::Texture & text, sf::RenderWindow * window, float speedx, float speedy)
 	:MapObject(text,rand()%601 + 100,-30,window)
 {
+	if (rand() % 2 == 0)
+		this->setDx(1.0);
+	else
+		this->setDx(-1.0);
 	this->speedx = speedx;
 	this->speedy = speedy;
 }
