@@ -6,6 +6,7 @@
 #include "MapObject.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "Modifier.h"
 
 class Game
 {
@@ -18,6 +19,7 @@ private:
 	std::vector <MapObject*> objectsOnMap;
 	Paddle * paddle;
 	std::vector <Ball*> balls;
+	std::vector <Modifier*> modifiers;
 
 	bool isCollide(sf::Sprite * s1, sf::Sprite * s2);
 

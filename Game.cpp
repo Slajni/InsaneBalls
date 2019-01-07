@@ -40,7 +40,7 @@ void Game::update()
 
 void Game::addMapObject(MapObject * obj)
 {
-	this->objectsOnMap.push_back(obj);
+	this->objectsOnMap.push_back(obj); 
 }
 
 void Game::addBall(Ball * obj)
@@ -72,5 +72,6 @@ void Game::updateMoves()
 			i->setDy(1.0);
 		if (isCollide(&i->gSprite(), &this->paddle->gSprite()))
 			i->negateDy();
+
 	}
 }
