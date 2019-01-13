@@ -24,8 +24,6 @@ MapObject::~MapObject()
 		delete this->position;
 	if(this->sprite!=nullptr)
 		delete this->sprite;
-	if(this->parentWindow!=nullptr)
-		delete this->parentWindow;
 }
 
 sf::Sprite * MapObject::gSprite()

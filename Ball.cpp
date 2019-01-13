@@ -1,6 +1,6 @@
 #include "Ball.h"
 #include <cstdlib>
-
+#include <iostream>
 
 Ball::Ball()
 {
@@ -21,4 +21,5 @@ void Ball::update()
 
 Ball::~Ball()
 {
+	std::cout << "Ball deleted" << std::endl;
 }

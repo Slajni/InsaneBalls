@@ -44,7 +44,7 @@ int main()
                 window.close();
         }
 		game->update();
-		if (clock.getElapsedTime() > sf::seconds(5))
+		if (clock.getElapsedTime() > sf::seconds(10))
 		{
 			game->addBall(new Ball(ballText, &window, sf::Vector2f((rand()%50 + 10)/10, (rand() % 50 + 10) / 10)));
 			clock.restart();

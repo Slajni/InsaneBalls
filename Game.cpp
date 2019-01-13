@@ -71,19 +71,28 @@ void Game::addPaddle(Paddle * obj)
 
 void Game::updateMoves()
 {
-	for (auto i : objectsOnMap)
+	for (auto i : balls)
 	{
+		movables.erase(std::remove_if(movables.begin(), movables.end(),
+			[](const auto& i) { return i->getPosition()->y > 800; }),
+			movables.end());
+		balls.erase(std::remove_if(balls.begin(), balls.end(),
+			[](const auto& i) { return i->getPosition()->y > 800; }),
+			balls.end());
 		objectsOnMap.erase(std::remove_if(objectsOnMap.begin(), objectsOnMap.end(),
 			[](const auto& i) { return i->getPosition()->y > 800; }),
 			objectsOnMap.end());
+		if (i->getPosition()->y > 800)
+			delete i;
 	}
+	// do it for modifiers too
 	for (auto i : movables)
 	{
-		std::cout << i->getPosition()->x << " " << i->getPosition()->y << std::endl;
+		//std::cout << i->getPosition()->x << " " << i->getPosition()->y << std::endl;
 		if (i->getPosition()->x < 0 || i->getPosition()->x > 800)
 			i->negateDx();
-		if (i->getPosition()->y < 0)
-			i->setDy(1.0);
+		if (i->getPosition()->y < 0 && i->getDirections().y < 0)
+			i->negateDy();
 		if (isCollide(i->gSprite(), this->paddle->gSprite()))
 			i->negateDy();
 		
@@ -99,6 +108,6 @@ void Game::updateMoves()
 					}
 				}
 			}
-
+		
 	}
 }
