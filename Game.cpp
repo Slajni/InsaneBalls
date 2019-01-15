@@ -86,6 +86,9 @@ void Game::updateMoves()
 {
 	for (auto i : balls)
 	{
+		if (isCollide(i->gSprite(), this->paddle->gSprite()))
+			i->negateDy();
+
 		movables.erase(std::remove_if(movables.begin(), movables.end(),
 			[](const auto& i) { return i->getPosition()->y > 800; }),
 			movables.end());
@@ -103,15 +106,29 @@ void Game::updateMoves()
 			std::cout << std::endl << "You have " << this->getLives() << " lives left\n";
 		}
 	}
-	// do it for modifiers too
+	for (auto i : modifiers)
+	{
+		movables.erase(std::remove_if(movables.begin(), movables.end(),
+			[](const auto& i) { return i->getPosition()->y > 800; }),
+			movables.end());
+		modifiers.erase(std::remove_if(modifiers.begin(), modifiers.end(),
+			[](const auto& i) { return i->getPosition()->y > 800; }),
+			modifiers.end());
+		objectsOnMap.erase(std::remove_if(objectsOnMap.begin(), objectsOnMap.end(),
+			[](const auto& i) { return i->getPosition()->y > 800; }),
+			objectsOnMap.end());
+		if (i->getPosition()->y > 800)
+		{
+			delete i;
+			std::cout << this->objectsOnMap.size() << std::endl;
+		}
+	}
 	for (auto i : movables)
 	{
 		//std::cout << i->getPosition()->x << " " << i->getPosition()->y << std::endl;
 		if (i->getPosition()->x < 0 || i->getPosition()->x > 800)
 			i->negateDx();
 		if (i->getPosition()->y < 0 && i->getDirections().y < 0)
-			i->negateDy();
-		if (isCollide(i->gSprite(), this->paddle->gSprite()))
 			i->negateDy();
 		
 		for(auto i: balls)

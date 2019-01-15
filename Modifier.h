@@ -10,9 +10,10 @@ private:
 
 public:
 	Modifier();
-	Modifier(const sf::Texture & text, sf::RenderWindow * window, float speedy = 8.0);
+	Modifier(const sf::Texture & text, sf::RenderWindow * window, float speedy = 6.0);
 	
 	virtual void effect();
+	virtual void update() override;
 
 	~Modifier();
 };
