@@ -22,6 +22,11 @@ void Movable::setDx(float x)
 	directions.x = x;
 }
 
+void Movable::deleteFromMap()
+{
+	this->changePosition(40, 1000);
+}
+
 sf::Vector2f Movable::getDirections()
 {
 	return this->directions;

@@ -15,6 +15,7 @@ public:
 	void negateDy();
 	void setDy(float y);
 	void setDx(float x);
+	void deleteFromMap();
 
 	sf::Vector2f getDirections();
 	sf::Vector2f getSpeeds();

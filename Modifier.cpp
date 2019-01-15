@@ -12,8 +12,9 @@ Modifier::Modifier(const sf::Texture & text, sf::RenderWindow * window, float sp
 
 }
 
-void Modifier::effect()
+char Modifier::effect()
 {
+	return '0';
 }
 
 void Modifier::update()

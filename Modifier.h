@@ -12,7 +12,7 @@ public:
 	Modifier();
 	Modifier(const sf::Texture & text, sf::RenderWindow * window, float speedy = 6.0);
 	
-	virtual void effect();
+	virtual char effect();
 	virtual void update() override;
 
 	~Modifier();

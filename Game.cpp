@@ -82,6 +82,11 @@ int Game::getLives()
 	return lives;
 }
 
+void Game::addLive()
+{
+	lives++;
+}
+
 void Game::updateMoves()
 {
 	for (auto i : balls)

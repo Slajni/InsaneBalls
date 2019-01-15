@@ -18,7 +18,7 @@ public:
 
 	sf::Sprite * gSprite();
 	sf::RenderWindow * gParentWindow();
-	void changePosition(int x, int y);
+	void changePosition(int x, int y); // set position of object on map to x y
 	virtual void update();
 	sf::Vector2i * getPosition();
 	void setPosition(int x, int y);
