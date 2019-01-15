@@ -44,6 +44,11 @@ int main()
                 window.close();
         }
 		game->update();
+		if (game->getLives() < 1)
+		{
+			std::cout << "You lost" << std::endl;
+			window.close();
+		}
 		if (clock.getElapsedTime() > sf::seconds(10))
 		{
 			game->addBall(new Ball(ballText, &window, sf::Vector2f((rand()%50 + 10)/10, (rand() % 50 + 10) / 10)));
@@ -51,5 +56,7 @@ int main()
 		}
     }
 	
+
+	std::cin.get();
     return 0;
 }

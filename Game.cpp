@@ -54,6 +54,7 @@ void Game::update()
 void Game::addMapObject(MapObject * obj)
 {
 	this->objectsOnMap.push_back(obj); 
+	std::cout << this->objectsOnMap.size() << " " << obj->getPosition()->x << " " << obj->getPosition()->y << std::endl;
 }
 
 void Game::addBall(Ball * obj)
@@ -67,6 +68,11 @@ void Game::addPaddle(Paddle * obj)
 {
 	this->paddle = obj;
 	this->addMapObject(obj);
+}
+
+int Game::getLives()
+{
+	return lives;
 }
 
 void Game::updateMoves()
@@ -83,7 +89,12 @@ void Game::updateMoves()
 			[](const auto& i) { return i->getPosition()->y > 800; }),
 			objectsOnMap.end());
 		if (i->getPosition()->y > 800)
+		{
 			delete i;
+			std::cout << this->objectsOnMap.size() << std::endl;
+			this->lives--;
+			std::cout << std::endl << "You have " << this->getLives() << " lives left\n";
+		}
 	}
 	// do it for modifiers too
 	for (auto i : movables)

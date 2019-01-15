@@ -22,6 +22,7 @@ public:
 	virtual void update();
 	sf::Vector2i * getPosition();
 	void setPosition(int x, int y);
+	int returnId();
 	
 };
 

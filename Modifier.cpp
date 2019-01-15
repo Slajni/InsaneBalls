@@ -12,6 +12,10 @@ Modifier::Modifier(const sf::Texture & text, sf::RenderWindow * window, float sp
 	//this->setDy(speedy);
 }
 
+void Modifier::effect()
+{
+}
+
 
 Modifier::~Modifier()
 {

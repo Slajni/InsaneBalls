@@ -26,6 +26,8 @@ private:
 	bool isCollide(sf::Sprite * s1, sf::Sprite * s2);
 	void addMovable(Movable * obj);
 
+	int lives = 5;
+
 public:
 	Game(sf::RenderWindow* window, std::string adress = "images/background.jpg");
 	Game();
@@ -36,6 +38,7 @@ public:
 	void addMapObject(MapObject * obj);
 	void addBall(Ball * obj);
 	void addPaddle(Paddle * obj);
+	int getLives();
 	void updateMoves(); // this function is responsible for bouncing of items and deleting them after they reach bottom of the map
 };
 

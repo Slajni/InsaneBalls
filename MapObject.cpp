@@ -50,6 +50,11 @@ sf::Vector2i * MapObject::getPosition()
 	return this->position;
 }
 
+int MapObject::returnId()
+{
+	return this->id;
+}
+
 void MapObject::setPosition(int x, int y)
 {
 	this->position->x = x;
