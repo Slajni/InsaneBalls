@@ -23,6 +23,7 @@ int main()
 
 	sf::RenderWindow menuWindow(sf::VideoMode(600, 600), "MENU");
 
+
 	Menu menu(menuWindow.getSize().x, menuWindow.getSize().y);
 
 	while (menuWindow.isOpen())
@@ -76,7 +77,6 @@ int main()
 		menuWindow.clear();
 
 		menu.draw(menuWindow);
-
 		menuWindow.display();
 	}
 
@@ -150,11 +150,10 @@ int main()
 			}
 		}
 
-		std::cout << "\nYou survived " << gameClock.getElapsedTime().asSeconds() << std::endl;
+		std::cout << "\nYou survived " << gameClock.getElapsedTime().asSeconds() << " seconds" << std::endl;
+		std::cin.get();
 
 	}
 
-
-	std::cin.get();
     return 0;
 }

@@ -16,6 +16,8 @@ public:
 
 private:
 	int selectedItemIndex;
+	sf::Texture menuBackground;
+	sf::Sprite menuSprite;
 	sf::Font font;
 	sf::Text menu[2];
 
