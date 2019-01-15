@@ -1,7 +1,8 @@
 #pragma once
 #include "MapObject.h"
+#include "Steerable.h"
 class Paddle :
-	public MapObject
+	public MapObject, public Steerable
 {
 private:
 
@@ -10,7 +11,8 @@ public:
 	Paddle();
 	Paddle(const sf::Texture & text, sf::RenderWindow * window, sf::Vector2i size);
 	~Paddle();
-	
+
+	virtual sf::Vector2i steer() override;
 	virtual void update() override;
 
 };

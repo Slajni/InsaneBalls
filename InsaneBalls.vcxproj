@@ -27,6 +27,7 @@
     <ClCompile Include="Modifier.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="Steerable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="Modifier.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="Paddle.h" />
+    <ClInclude Include="Steerable.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
