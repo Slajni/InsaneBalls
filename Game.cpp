@@ -70,6 +70,13 @@ void Game::addPaddle(Paddle * obj)
 	this->addMapObject(obj);
 }
 
+void Game::addModifier(Modifier * obj)
+{
+	this->modifiers.push_back(obj);
+	this->addMapObject(obj);
+	this->addMovable(obj);
+}
+
 int Game::getLives()
 {
 	return lives;

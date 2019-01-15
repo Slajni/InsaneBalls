@@ -1,5 +1,6 @@
 #pragma once
 #include "MapObject.h"
+
 class Movable :
 	public MapObject
 {

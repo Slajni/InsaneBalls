@@ -38,6 +38,7 @@ public:
 	void addMapObject(MapObject * obj);
 	void addBall(Ball * obj);
 	void addPaddle(Paddle * obj);
+	void addModifier(Modifier * obj);
 	int getLives();
 	void updateMoves(); // this function is responsible for bouncing of items and deleting them after they reach bottom of the map
 };

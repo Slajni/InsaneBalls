@@ -10,7 +10,7 @@
 #include "MapObject.h"
 #include "Paddle.h"
 #include "Ball.h"
-
+#include "Modifier.h"
 
 int main()
 {
@@ -24,12 +24,15 @@ int main()
 	paddleText.loadFromFile("images/paddle.png");
 	sf::Texture ballText;
 	ballText.loadFromFile("images/ball.png");
+	sf::Texture liveText;
+	liveText.loadFromFile("images/heart.png");
 
 	Paddle * paddle = new Paddle(paddleText, &window, sf::Vector2i(90, 9));
 
 
 	game->addPaddle(paddle);
 	game->addBall(new Ball(ballText, &window, sf::Vector2f(4.0, 4.0)));
+	
 
 	sf::Clock clock;
     while (window.isOpen())
