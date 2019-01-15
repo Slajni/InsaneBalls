@@ -87,6 +87,11 @@ void Game::addLive()
 	lives++;
 }
 
+void Game::takeLifeAway()
+{
+	lives--;
+}
+
 void Game::updateMoves()
 {
 	for (auto i : balls)
@@ -129,7 +134,14 @@ void Game::updateMoves()
 			{
 			case 'h':
 			{
-				addLive();
+				if(getLives()<=10)
+					addLive();
+				std::cout << "You have " << getLives() << " left\n";
+				break;
+			}
+			case 'd':
+			{
+				takeLifeAway();
 				std::cout << "You have " << getLives() << " left\n";
 				break;
 			}

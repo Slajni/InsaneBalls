@@ -41,6 +41,7 @@ public:
 	void addModifier(Modifier * obj);
 	int getLives();
 	void addLive();
+	void takeLifeAway();
 	void updateMoves(); // this function is responsible for bouncing of items and deleting them after they reach bottom of the map
 };
 
