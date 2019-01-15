@@ -11,6 +11,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Modifier.h"
+#include "FallingHealth.h"
 
 int main()
 {
@@ -32,7 +33,7 @@ int main()
 
 	game->addPaddle(paddle);
 	game->addBall(new Ball(ballText, &window, sf::Vector2f(4.0, 4.0)));
-	game->addModifier(new Modifier(liveText, &window));
+	game->addModifier(new FallingHealth(liveText,&window));
 
 	sf::Clock clock;
     while (window.isOpen())

@@ -122,6 +122,22 @@ void Game::updateMoves()
 		objectsOnMap.erase(std::remove_if(objectsOnMap.begin(), objectsOnMap.end(),
 			[](const auto& i) { return i->getPosition()->y > 800; }),
 			objectsOnMap.end());
+		if (isCollide(i->gSprite(), paddle->gSprite()))
+		{
+			char efct = i->effect();
+			switch (efct)
+			{
+			case 'h':
+			{
+				addLive();
+				std::cout << "You have " << getLives() << " left\n";
+				break;
+			}
+			default:
+				break;
+
+			}
+		}
 		if (i->getPosition()->y > 800)
 		{
 			delete i;

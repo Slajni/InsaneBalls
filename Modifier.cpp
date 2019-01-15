@@ -14,6 +14,7 @@ Modifier::Modifier(const sf::Texture & text, sf::RenderWindow * window, float sp
 
 char Modifier::effect()
 {
+	deleteFromMap();
 	return '0';
 }
 
