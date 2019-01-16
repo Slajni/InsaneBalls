@@ -43,6 +43,17 @@ void Game::update()
 	this->mainWindow->clear();
 	this->mainWindow->draw(*this->map);
 	this->updateMoves();
+
+	if (shrinkerClock.getElapsedTime() > sf::seconds(10) && shrinked)
+	{
+		extendPaddle();
+		shrinked = false;
+	}
+	if (extenderClock.getElapsedTime() > sf::seconds(10) && extended)
+	{
+		shrinkPaddle();
+		extended = false;
+	}
 	for (auto i : this->objectsOnMap)
 	{
 		i->update();
@@ -104,7 +115,11 @@ void Game::updateMoves()
 	{
 		if (isCollide(i->gSprite(), this->paddle->gSprite()))
 			i->negateDy();
-
+		if (isCollide(i->gSprite(), hollowBall->gSprite()))
+		{
+			i->negateDx();
+			i->negateDy();
+		}
 
 		movables.erase(std::remove_if(movables.begin(), movables.end(),
 			[](const auto& i) { return i->getPosition()->y > 800; }),
@@ -152,6 +167,18 @@ void Game::updateMoves()
 				std::cout << "You have " << getLives() << " lives left\n";
 				break;
 			}
+			case 'e':
+			{
+				extendPaddle();
+				extenderClock.restart();
+				extended = true;
+			}
+			case 's':
+			{
+				shrinkPaddle();
+				shrinkerClock.restart();
+				shrinked = true;
+			}
 			default:
 				break;
 
@@ -172,11 +199,6 @@ void Game::updateMoves()
 			i->negateDy();
 		
 		for(auto i: balls)
-			if (isCollide(i->gSprite(), hollowBall->gSprite()))
-			{
-				i->negateDx();
-				i->negateDy();
-			}
 			for (auto j : balls)
 			{
 				if (j != i)

@@ -30,6 +30,12 @@ private:
 
 	int lives = 5;
 
+	sf::Clock extenderClock;
+	sf::Clock shrinkerClock;
+
+	bool shrinked = 0;
+	bool extended = 0;
+
 public:
 	Game(sf::RenderWindow* window, std::string adress = "images/background.jpg");
 	Game();

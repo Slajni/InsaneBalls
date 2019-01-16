@@ -14,6 +14,8 @@
 #include "FallingHealth.h"
 #include "FallingDeath.h"
 #include "Menu.h"
+#include "Extender.h"
+#include "Shrinker.h"
 
 int main()
 {
@@ -134,15 +136,22 @@ int main()
 				game->addBall(new Ball(ballText, &window, sf::Vector2f((rand() % 50 + 10) / 10, (rand() % 50 + 10) / 10)));
 				clock.restart();
 			}
-			if (modifierClock.getElapsedTime() > sf::seconds(15))
+			if (modifierClock.getElapsedTime() > sf::seconds(5))
 			{
-				switch (rand() % 2 + 1)
+				switch (rand() % 4 + 1)
 				{
 				case 1:
 					game->addModifier(new FallingHealth(liveText, &window));
 					break;
 				case 2:
 					game->addModifier(new FallingDeath(deathText, &window));
+					break;
+				case 3:
+					game->addModifier(new Extender(extender, &window));
+					break;
+				case 4:
+					game->addModifier(new Shrinker(shrinker, &window));
+					break;
 				}
 				modifierClock.restart();
 			}
