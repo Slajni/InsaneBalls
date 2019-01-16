@@ -20,16 +20,16 @@ HollowBall::~HollowBall()
 sf::Vector2i HollowBall::steer()
 {
 	sf::Vector2i * pos = this->getPosition();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		if(pos->x <=782)
 			pos->x += 6;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		if (pos->x >= 6)
 			pos->x -= 6;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		if (pos->y >= 6)
 			pos->y -= 6;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		if (pos->y <= 782)
 			pos->y += 6;
 
