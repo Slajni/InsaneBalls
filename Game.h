@@ -8,6 +8,7 @@
 #include "Ball.h"
 #include "Modifier.h"
 #include "Movable.h"
+#include "HollowBall.h"
 
 class Game
 {
@@ -20,6 +21,7 @@ private:
 	std::vector <MapObject*> objectsOnMap;
 	std::vector <Movable*> movables;
 	Paddle * paddle;
+	HollowBall * hollowBall;
 	std::vector <Ball*> balls;
 	std::vector <Modifier*> modifiers;
 
@@ -39,6 +41,7 @@ public:
 	void addBall(Ball * obj);
 	void addPaddle(Paddle * obj);
 	void addModifier(Modifier * obj);
+	void addHollowBall(HollowBall * obj);
 	int getLives();
 	void addLive();
 	void takeLifeAway();

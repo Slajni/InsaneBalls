@@ -23,6 +23,7 @@
     <ClCompile Include="FallingDeath.cpp" />
     <ClCompile Include="FallingHealth.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HollowBall.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapObject.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="FallingDeath.h" />
     <ClInclude Include="FallingHealth.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="HollowBall.h" />
     <ClInclude Include="MapObject.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Modifier.h" />

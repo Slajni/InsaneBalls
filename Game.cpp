@@ -77,6 +77,12 @@ void Game::addModifier(Modifier * obj)
 	this->addMovable(obj);
 }
 
+void Game::addHollowBall(HollowBall * obj)
+{
+	addMapObject(obj);
+	this->hollowBall = obj;
+}
+
 int Game::getLives()
 {
 	return lives;
@@ -166,6 +172,11 @@ void Game::updateMoves()
 			i->negateDy();
 		
 		for(auto i: balls)
+			if (isCollide(i->gSprite(), hollowBall->gSprite()))
+			{
+				i->negateDx();
+				i->negateDy();
+			}
 			for (auto j : balls)
 			{
 				if (j != i)

@@ -103,7 +103,7 @@ int main()
 
 		game->addPaddle(paddle);
 		game->addBall(new Ball(ballText, &window, sf::Vector2f(4.0, 4.0)));
-
+		game->addHollowBall(new HollowBall(ballText, &window));
 		sf::Clock gameClock;
 		sf::Clock clock;
 		sf::Clock modifierClock;
