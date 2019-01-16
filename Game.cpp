@@ -99,6 +99,7 @@ void Game::updateMoves()
 		if (isCollide(i->gSprite(), this->paddle->gSprite()))
 			i->negateDy();
 
+
 		movables.erase(std::remove_if(movables.begin(), movables.end(),
 			[](const auto& i) { return i->getPosition()->y > 800; }),
 			movables.end());
@@ -134,15 +135,15 @@ void Game::updateMoves()
 			{
 			case 'h':
 			{
-				if(getLives()<=10)
+				if (getLives() <= 10)
 					addLive();
-				std::cout << "You have " << getLives() << " left\n";
+				std::cout << "You have " << getLives() << " lives left\n";
 				break;
 			}
 			case 'd':
 			{
 				takeLifeAway();
-				std::cout << "You have " << getLives() << " left\n";
+				std::cout << "You have " << getLives() << " lives left\n";
 				break;
 			}
 			default:
@@ -178,4 +179,16 @@ void Game::updateMoves()
 			}
 		
 	}
+}
+
+void Game::shrinkPaddle()
+{
+	this->paddle->gSprite()->scale(0.5, 1);
+	this->paddle->shrinkSize();
+}
+
+void Game::extendPaddle()
+{
+	this->paddle->gSprite()->scale(2, 1);
+	this->paddle->extendSize();
 }

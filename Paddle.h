@@ -12,6 +12,8 @@ public:
 	Paddle(const sf::Texture & text, sf::RenderWindow * window, sf::Vector2i size);
 	~Paddle();
 
+	void shrinkSize();
+	void extendSize();
 	virtual sf::Vector2i steer() override;
 	virtual void update() override;
 

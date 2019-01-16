@@ -18,6 +18,16 @@ Paddle::~Paddle()
 {
 }
 
+void Paddle::shrinkSize()
+{
+	this->size.x /= 2;
+}
+
+void Paddle::extendSize()
+{
+	this->size.x *= 2;
+}
+
 sf::Vector2i Paddle::steer()
 {
 	return sf::Mouse::getPosition(*gParentWindow());

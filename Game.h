@@ -43,5 +43,7 @@ public:
 	void addLive();
 	void takeLifeAway();
 	void updateMoves(); // this function is responsible for bouncing of items and deleting them after they reach bottom of the map
+	void shrinkPaddle();
+	void extendPaddle();
 };
 
