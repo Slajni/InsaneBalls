@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Extender.cpp" />
     <ClCompile Include="FallingDeath.cpp" />
     <ClCompile Include="FallingHealth.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -30,10 +31,12 @@
     <ClCompile Include="Modifier.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="Shrinker.cpp" />
     <ClCompile Include="Steerable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Extender.h" />
     <ClInclude Include="FallingDeath.h" />
     <ClInclude Include="FallingHealth.h" />
     <ClInclude Include="Game.h" />
@@ -43,6 +46,7 @@
     <ClInclude Include="Modifier.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="Paddle.h" />
+    <ClInclude Include="Shrinker.h" />
     <ClInclude Include="Steerable.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

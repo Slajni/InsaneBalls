@@ -97,6 +97,10 @@ int main()
 		liveText.loadFromFile("images/heart.png");
 		sf::Texture deathText;
 		deathText.loadFromFile("images/death.png");
+		sf::Texture shrinker;
+		shrinker.loadFromFile("images/paddleShrinker.png");
+		sf::Texture extender;
+		shrinker.loadFromFile("images/paddleExtender.png");
 
 		Paddle * paddle = new Paddle(paddleText, &window, sf::Vector2i(90, 9));
 

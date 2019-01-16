@@ -51,6 +51,12 @@
     <ClCompile Include="HollowBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shrinker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Extender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -84,6 +90,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HollowBall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shrinker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
