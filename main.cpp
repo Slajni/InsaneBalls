@@ -102,7 +102,7 @@ int main()
 		sf::Texture shrinker;
 		shrinker.loadFromFile("images/paddleShrinker.png");
 		sf::Texture extender;
-		shrinker.loadFromFile("images/paddleExtender.png");
+		extender.loadFromFile("images/paddleExtender.png");
 
 		Paddle * paddle = new Paddle(paddleText, &window, sf::Vector2i(90, 9));
 
@@ -114,6 +114,7 @@ int main()
 		sf::Clock clock;
 		sf::Clock modifierClock;
 		sf::Clock hardClock;
+
 		while (window.isOpen())
 		{
 			// check all the window's events that were triggered since the last iteration of the loop
@@ -136,7 +137,7 @@ int main()
 				game->addBall(new Ball(ballText, &window, sf::Vector2f((rand() % 50 + 10) / 10, (rand() % 50 + 10) / 10)));
 				clock.restart();
 			}
-			if (modifierClock.getElapsedTime() > sf::seconds(5))
+			if (modifierClock.getElapsedTime() > sf::seconds(2))
 			{
 				switch (rand() % 4 + 1)
 				{

@@ -169,15 +169,23 @@ void Game::updateMoves()
 			}
 			case 'e':
 			{
-				extendPaddle();
+				if (!extended)
+				{
+					extendPaddle();
+					extended = true;
+				}
 				extenderClock.restart();
-				extended = true;
+				break;
 			}
 			case 's':
 			{
-				shrinkPaddle();
+				if (!shrinked)
+				{
+					shrinkPaddle();
+					shrinked = true;
+				}
 				shrinkerClock.restart();
-				shrinked = true;
+				break;
 			}
 			default:
 				break;

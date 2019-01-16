@@ -28,7 +28,7 @@ private:
 	bool isCollide(sf::Sprite * s1, sf::Sprite * s2);
 	void addMovable(Movable * obj);
 
-	int lives = 5;
+	int lives = 100;
 
 	sf::Clock extenderClock;
 	sf::Clock shrinkerClock;
